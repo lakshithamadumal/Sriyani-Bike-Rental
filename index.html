@@ -120,6 +120,51 @@
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
+
+        /* Responsive tweaks */
+        @media (max-width: 1024px) {
+            .hero {
+                background-attachment: scroll;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+
+            .hero p {
+                font-size: 1.125rem;
+            }
+
+            .map-embed {
+                height: 16rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title::after {
+                width: 56px;
+            }
+
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
         </style>
     </head>
     <body class="bg-white text-gray-800">
@@ -152,7 +197,7 @@
             <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
             <div class="container mx-auto px-4 relative z-10 text-center text-white">
                 <div class="max-w-3xl mx-auto">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Travel Sri Lanka in Style</h1>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Travel Sri Lanka</h1>
                     <p class="text-xl md:text-2xl mb-8 leading-relaxed">Explore Ella at your own pace with comfortable scooters, fair prices, and friendly local service.</p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a href="#agreement" class="btn-primary px-8 py-4 rounded-lg font-bold text-lg inline-block">Agreement</a>
@@ -167,163 +212,148 @@
             </div>
         </section>
         <!-- Agreement Section -->
+        <!-- Agreement Section -->
         <section id="agreement" class="section py-20 bg-white">
-    <div class="container mx-auto px-4">
-
-        <h2 class="section-title text-4xl font-bold text-center text-gray-800 mb-16">
-            Rental Agreement
-        </h2>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-
-            <!-- LEFT : TERMS -->
-            <div>
-                <h3 class="text-2xl font-bold mb-6 text-[#009688]">Terms & Conditions</h3>
-
-                <div class="space-y-6">
-
-                    <!-- Bike Condition -->
-                    <div class="flex items-start">
-                        <div class="bg-[#fbe9e7] p-3 rounded-full mr-4">
-                            <i class="fas fa-motorcycle text-[#ff9800]"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-lg mb-1">Bike Condition</h4>
-                            <p class="text-gray-600">
-                                The bike will be handed over in good riding condition after inspection,
-                                with a full fuel tank.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Rental Time & Price -->
-                    <div class="flex items-start">
-                        <div class="bg-[#fbe9e7] p-3 rounded-full mr-4">
-                            <i class="fas fa-clock text-[#ff9800]"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-lg mb-1">Rental Time & Charges</h4>
-                            <p class="text-gray-600">
-                                Rental time is from <strong>8:00 AM to 10:00 PM</strong>.
-                                The charge for this period is <strong>LKR 12,500</strong>.
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-4xl font-bold text-center text-gray-800 mb-16">
+                    Rental Agreement
+                </h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- LEFT : TERMS -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-[#009688]">Terms & Conditions</h3>
+                        <div class="space-y-6">
+                            <!-- Bike Condition -->
+                            <div class="flex items-start">
+                                <div class="bg-[#fbe9e7] p-3 rounded-full mr-4">
+                                    <i class="fas fa-motorcycle text-[#ff9800]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Bike Condition</h4>
+                                    <p class="text-gray-600">
+                                        The bike will be handed over in good riding condition after inspection,
+                                with a full fuel tank. The renter must inspect the bike before accepting it.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Rental Time & Charges -->
+                            <div class="flex items-start">
+                                <div class="bg-[#fbe9e7] p-3 rounded-full mr-4">
+                                    <i class="fas fa-clock text-[#ff9800]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Rental Time & Charges</h4>
+                                    <p class="text-gray-600">
+                                        Rental time is from
+                                        <strong>8:00 AM to 10:00 PM</strong>
+                                        .
+                                The charge for this period is
+                                        <strong>LKR 12,500</strong>
+                                        .
                                 Usage after 10:00 PM will be charged on an hourly basis.
-                            </p>
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Documents & Verification -->
+                            <div class="flex items-start">
+                                <div class="bg-[#fbe9e7] p-3 rounded-full mr-4">
+                                    <i class="fas fa-id-card text-[#ff9800]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Documents & Verification</h4>
+                                    <p class="text-gray-600">
+                                        A valid driving license accepted in Sri Lanka is mandatory and will be checked
+                                before issuing the bike. The renter must sign the rental agreement.
+                                The passport will be held as security and returned only after the bike is safely returned.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Safety Gear -->
+                            <div class="flex items-start">
+                                <div class="bg-[#fbe9e7] p-3 rounded-full mr-4">
+                                    <i class="fas fa-shield-alt text-[#ff9800]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Safety Gear</h4>
+                                    <p class="text-gray-600">
+                                        A helmet is provided with the bike. The renter is responsible for wearing
+                                and properly using safety gear during the rental period.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Fuel Policy (UPDATED) -->
+                            <div class="flex items-start">
+                                <div class="bg-[#fbe9e7] p-3 rounded-full mr-4">
+                                    <i class="fas fa-gas-pump text-[#ff9800]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Fuel Policy</h4>
+                                    <p class="text-gray-600">
+                                        The bike is provided with a full fuel tank at the time of handover.
+                                The renter must return the bike with a full fuel tank.
+                                If the bike is returned without a full tank, the renter must pay
+                                the cost of the missing fuel as determined by Sriyani Bike Rental.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Damage & Liability -->
+                            <div class="flex items-start">
+                                <div class="bg-[#fbe9e7] p-3 rounded-full mr-4">
+                                    <i class="fas fa-tools text-[#ff9800]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Damage & Liability</h4>
+                                    <p class="text-gray-600">
+                                        Any damage, loss, or missing parts during the rental period must be fully
+                                paid by the renter. Sriyani Bike Rental is not responsible for accidents,
+                                injuries, traffic violations, or legal issues caused by the renter.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <!-- Documents -->
-                    <div class="flex items-start">
-                        <div class="bg-[#fbe9e7] p-3 rounded-full mr-4">
-                            <i class="fas fa-id-card text-[#ff9800]"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-lg mb-1">Documents & Verification</h4>
-                            <p class="text-gray-600">
-                                A valid driving license is mandatory and will be checked before issuing the bike.
-                                The renter must sign the rental agreement, and the passport will be held as security
-                                until the bike is safely returned.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Safety Gear -->
-                    <div class="flex items-start">
-                        <div class="bg-[#fbe9e7] p-3 rounded-full mr-4">
-                            <i class="fas fa-shield-alt text-[#ff9800]"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-lg mb-1">Safety Gear</h4>
-                            <p class="text-gray-600">
-                                A helmet is provided with the bike. The renter is responsible for using
-                                safety gear properly during the rental period.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Fuel -->
-                    <div class="flex items-start">
-                        <div class="bg-[#fbe9e7] p-3 rounded-full mr-4">
-                            <i class="fas fa-gas-pump text-[#ff9800]"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-lg mb-1">Fuel Policy</h4>
-                            <p class="text-gray-600">
-                                The renter is responsible for fueling the bike.
-                                If fuel is provided by Sriyani Bike Rental, the fuel cost will be charged separately.
-                                The bike must be returned with a full fuel tank.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Damage -->
-                    <div class="flex items-start">
-                        <div class="bg-[#fbe9e7] p-3 rounded-full mr-4">
-                            <i class="fas fa-tools text-[#ff9800]"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-lg mb-1">Damage & Liability</h4>
-                            <p class="text-gray-600">
-                                Any damage, loss, or mechanical issues caused during the rental period
-                                must be fully paid by the renter. Sriyani Bike Rental is not responsible
-                                for accidents, injuries, traffic violations, or legal issues caused by the renter.
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- RIGHT : NOTES -->
-            <div>
-                <div class="bg-gradient-to-br from-[#009688]/10 to-[#ff9800]/10 rounded-2xl p-8 h-full">
-
-                    <h3 class="text-2xl font-bold mb-6 text-gray-800">Important Notes</h3>
-
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <p>The bike is issued only after verifying the driving license.</p>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <p>Passport will be returned only after the bike is safely handed back.</p>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <p>Late returns may result in additional charges.</p>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <p>The renter must ride responsibly and follow Sri Lankan traffic laws.</p>
-                        </div>
-                    </div>
-
-                    <!-- DOWNLOAD + PREVIEW -->
-                    <div class="bg-white/70 p-6 rounded-xl">
-                        <h4 class="font-bold text-lg mb-3 text-[#009688]">Need More Details?</h4>
-                        <p class="text-gray-600 mb-4">
-                            Download or review our complete rental agreement document.
-                        </p>
-
-                        <a href="Sriyani_Bike_Rental_Agreement.pdf"
-                           download
-                           class="btn-secondary px-5 py-3 rounded-md font-semibold inline-flex items-center">
-                            <i class="fas fa-download mr-2"></i>
-                            Download Agreement
-                        </a>
-                        <p class="text-xs text-gray-500 mt-4">
-                            By renting the bike, the renter confirms that they have read, understood,
+                    <!-- RIGHT : NOTES -->
+                    <div>
+                        <div class="bg-gradient-to-br from-[#009688]/10 to-[#ff9800]/10 rounded-2xl p-8 h-full">
+                            <h3 class="text-2xl font-bold mb-6 text-gray-800">Important Notes</h3>
+                            <div class="space-y-4 mb-8">
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                    <p>The bike is issued only after verifying the driving license.</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                    <p>Passport will be returned only after the bike is safely handed back.</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                    <p>Late returns may result in additional charges.</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                    <p>The renter must ride responsibly and follow Sri Lankan traffic laws.</p>
+                                </div>
+                            </div>
+                            <!-- DOWNLOAD -->
+                            <div class="bg-white/70 p-6 rounded-xl">
+                                <h4 class="font-bold text-lg mb-3 text-[#009688]">Need More Details?</h4>
+                                <p class="text-gray-600 mb-4">
+                                    Download or review our complete rental agreement document.
+                                </p>
+                                <a href="Sriyani_Bike_Rental_Agreement.pdf" download class="btn-secondary px-5 py-3 rounded-md font-semibold inline-flex items-center">
+                                    <i class="fas fa-download mr-2"></i>
+                                    Agreement
+                                </a>
+                                <p class="text-xs text-gray-500 mt-4">
+                                    By renting the bike, the renter confirms that they have read, understood,
                             and agreed to all the above terms and conditions.
-                        </p>
+                                </p>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
             </div>
-
-        </div>
-    </div>
-</section>
-
+        </section>
         <!-- Contact & Booking Section -->
         <section id="contact" class="section py-20 bg-gray-50">
             <div class="container mx-auto px-4">
@@ -331,7 +361,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     <!-- Contact Info -->
                     <div>
-                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden h-full">
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden h-full p-8">
                             <h3 class="text-2xl font-bold mb-8 text-[#009688]">Get In Touch</h3>
                             <div class="space-y-6 mb-8">
                                 <div class="flex items-start">
@@ -383,7 +413,7 @@
                             <div class="p-8">
                                 <h3 class="text-2xl font-bold mb-6 text-[#009688]">Our Location</h3>
                                 <!-- Google Map Embed -->
-                                <div class="rounded-xl overflow-hidden shadow-lg h-96">
+                                <div class="rounded-xl overflow-hidden shadow-lg h-96 map-embed">
                                     <iframe
                                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.5738065298574!2d81.0803004748345!3d6.821574993176218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae469006fa03e5f:0xed3ce66065054d5c!2sSriyani%20Bike%20Rental!5e0!3m2!1sen!2ssg!4v1769670668526!5m2!1sen!2ssg"
                                         width="100%"
