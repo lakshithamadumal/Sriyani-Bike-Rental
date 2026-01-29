@@ -114,6 +114,39 @@
         .floating-animation {
             animation: floating 3s ease-in-out infinite;
         }
+
+        /* Image preview (lightbox) */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            z-index: 9999;
+        }
+
+        .lightbox.open {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+            line-height: 1;
+        }
         
         @keyframes floating {
             0% { transform: translateY(0px); }
@@ -468,6 +501,11 @@
                 </div>
             </div>
         </section>
+        <!-- Image Preview Lightbox -->
+        <div id="lightbox" class="lightbox" aria-hidden="true">
+            <button id="lightboxClose" class="lightbox-close" aria-label="Close image preview">&times;</button>
+            <img id="lightboxImage" src="" alt="Preview">
+        </div>
         <!-- Footer -->
         <footer class="bg-gray-900 text-white py-10">
             <div class="container mx-auto">
@@ -508,6 +546,7 @@
         
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
+        const backToTopButton = document.getElementById('backToTop');
         
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -519,18 +558,21 @@
             }
             
             // Back to Top Button
-            const backToTopButton = document.getElementById('backToTop');
-            if (window.scrollY > 300) {
-                backToTopButton.classList.remove('hidden');
-            } else {
-                backToTopButton.classList.add('hidden');
+            if (backToTopButton) {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.remove('hidden');
+                } else {
+                    backToTopButton.classList.add('hidden');
+                }
             }
         });
         
         // Back to Top Button
-        document.getElementById('backToTop').addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        if (backToTopButton) {
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -548,6 +590,39 @@
                     });
                 }
             });
+        });
+
+        // Image preview (lightbox)
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxClose = document.getElementById('lightboxClose');
+
+        document.querySelectorAll('#gallery img').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', () => {
+                lightboxImage.src = img.src;
+                lightboxImage.alt = img.alt || 'Preview';
+                lightbox.classList.add('open');
+                lightbox.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('open');
+            lightbox.setAttribute('aria-hidden', 'true');
+            lightboxImage.src = '';
+            document.body.style.overflow = '';
+        };
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+                closeLightbox();
+            }
         });
         </script>
     </body>
